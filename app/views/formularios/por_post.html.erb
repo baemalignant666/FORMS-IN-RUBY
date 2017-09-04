@@ -1,0 +1,13 @@
+<h2>Por Favor Ingrese Un Comentario</h2>
+<%=form_tag({:controller =>"formularios", :action => "por_post"}, :method => "post") do %>
+  <%= label_tag "nombre","Nombre"%>
+  <%= text_field_tag "nombre", "", :required => "required" %>
+  <%= text_area_tag "comentario", "", :cols => 50, :rows => 10, :required => "required" %>
+  <%= submit_tag "Enviar Formulario" %>
+
+<% end %>
+
+  <% if @comentario %>
+      <p> <strong> <%= @comentario[:nombre]%> </strong>, Gracias por publicar tu comentario </p>
+      <%= simple_format(@comentario[:consulta])%>
+  <% end %>

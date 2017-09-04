@@ -1,0 +1,15 @@
+<h2>Por Favor Ingrese el Codigo del usuario</h2>
+<%=form_tag({:controller =>"formularios", :action => "por_get"}, :method => "get") do %>
+  <%= label_tag "codigo","Código de Usuario"%>
+  <%= text_field_tag "codigo", "", :size => 5, :maxlenght => 5, :required => "required"%>
+  <%= submit_tag "Enviar" %>
+
+<% end %>
+
+  <% if @codigo %>
+      <% if @usuario %>
+        <p> <%= @usuario[:nombre]%> <%= @usuario[:apellido]%> </p>
+      <% else %>
+        <p> El usuario con el código <%= @codigo %> no ha sido encontrado </p>
+  <% end %>
+  <% end %>
